@@ -1,0 +1,42 @@
+stages:
+  - test
+  - package
+  - deploy
+
+variables:
+  AWS_REGION: "us-west-2"
+  S3_BUCKET_NAME: "autoscribe-data-lake"
+  EB_APP_NAME: "autoscribe-app"
+  EB_ENV_NAME: "autoscribe-env"
+
+before_script:
+  - pip install -r requirements.txt
+  - apt-get update && apt-get install -y zip unzip
+  - curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+  - unzip awscliv2.zip
+  - ./aws/install
+
+test:
+  stage: test
+  script:
+    - python manage.py test
+
+package:
+  stage: package
+  script:
+    - zip -r autoscribe.zip autoscribe
+    - aws s3 cp autoscribe.zip s3://$S3_BUCKET_NAME/autoscribe.zip
+    - zip lambda_scaling.zip lambda_scaling.py
+  artifacts:
+    paths:
+      - autoscribe.zip
+      - lambda_scaling.zip
+
+deploy:
+  stage: deploy
+  script:
+    - terraform init
+    - terraform plan
+    - terraform apply -auto-approve
+    - aws elasticbeanstalk create-application-version --application-name $EB_APP_NAME --version-label v1 --source-bundle S3Bucket=$S3_BUCKET_NAME,S3Key=autoscribe.zip
+    - aws elasticbeanstalk update-environment --environment-name $EB_ENV_NAME --version-label v1
