@@ -1,4 +1,4 @@
-Here are the steps to run the entire process, including setting up Terraform, configuring GitLab CI/CD, and deploying the Django application to AWS Elastic Beanstalk with auto-scaling and WAF configurations:
+Here are the testing steps to run the entire deployment process, including setting up Terraform, configuring GitLab CI/CD, and deploying the Django application to AWS Elastic Beanstalk with auto-scaling and WAF configurations.:
 
 ### Step 1: Prerequisites
 
@@ -141,4 +141,4 @@ Here are the steps to run the entire process, including setting up Terraform, co
 
 2. **Regular Updates**: Regularly update your Terraform scripts, CI/CD pipeline, and application code to incorporate security patches and new features.
 
-3. **Audit and Review**: Note that speech data across different regions/sectors is subjected to various regulations eg HIPAA for health
+3. **Audit and Review**: Note that speech data across different regions/sectors is subjected to various regulations eg HIPAA for health.
