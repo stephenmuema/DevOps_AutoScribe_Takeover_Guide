@@ -1,11 +1,15 @@
+#DEVOPS Terraform Training on old Prod Environment from 2023
+
+Due to requests from peers in cybersecurity, I have open-sourced this prod environment created with Terraform in 2022 for my startup which a company in Asia later acquired. They shifted to Google Cloud, so I'm revealing the README file and terraform configurations I shared with them during the transfer phase. I am neither an expert nor nor a tutor, but ni God tu 😁. Good luck!!
+
 Here are the testing steps to run the entire deployment process, including setting up Terraform, configuring GitLab CI/CD, and deploying the Django application to AWS Elastic Beanstalk with auto-scaling and WAF configurations.:
 
 ### Step 1: Prerequisites
 
-1. **Install Terraform**: Make sure Terraform is installed on your local machine.
+1. **Install Terraform**: Ensure Terraform is installed on your local machine.
    ```bash
-   wget https://releases.hashicorp.com/terraform/1.9.3/terraform_1.9.3_linux_amd64.zip
-   unzip terraform_1.9.3_linux_amd64.zip
+   wget https://releases.hashicorp.com/terraform/1.5.3/terraform_1.5.3_linux_amd64.zip
+   unzip terraform_1.5.3_linux_amd64.zip
    sudo mv terraform /usr/local/bin/
    terraform --version
    ```
