@@ -4,8 +4,8 @@ Here are the steps to run the entire process, including setting up Terraform, co
 
 1. **Install Terraform**: Make sure Terraform is installed on your local machine.
    ```bash
-   wget https://releases.hashicorp.com/terraform/1.5.3/terraform_1.5.3_linux_amd64.zip
-   unzip terraform_1.5.3_linux_amd64.zip
+   wget https://releases.hashicorp.com/terraform/1.9.3/terraform_1.9.3_linux_amd64.zip
+   unzip terraform_1.9.3_linux_amd64.zip
    sudo mv terraform /usr/local/bin/
    terraform --version
    ```
@@ -141,6 +141,4 @@ Here are the steps to run the entire process, including setting up Terraform, co
 
 2. **Regular Updates**: Regularly update your Terraform scripts, CI/CD pipeline, and application code to incorporate security patches and new features.
 
-3. **Audit and Review**: Periodically audit and review the IAM roles, policies, and configurations to ensure compliance with best practices and security standards.
-
-By following these steps, you can securely set up, deploy, and maintain your Django application using Terraform and GitLab CI/CD on AWS Elastic Beanstalk with auto-scaling and WAF configurations.
+3. **Audit and Review**: Note that speech data across different regions/sectors is subjected to various regulations eg HIPAA for health
